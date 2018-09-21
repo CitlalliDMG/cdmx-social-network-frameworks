@@ -1,0 +1,16 @@
+.container {
+    width: 50%;
+    margin: 1.5em auto;
+    background: transparent;
+    padding: 0;
+    text-align: center;
+    color: #001f5e;
+    border: none;
+}
+
+#logo-index {
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

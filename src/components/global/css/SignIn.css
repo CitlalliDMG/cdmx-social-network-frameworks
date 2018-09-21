@@ -1,0 +1,13 @@
+.container-sign-in {
+    width: 50%;
+    margin: 1.5em auto;
+    padding: 3em;
+    border: 1px solid lightgrey;
+    background: white;
+}
+
+.container-sign-in h1 {
+    text-align: center;
+    color: #38468c;
+    margin: 0 auto 5% auto;
+}
