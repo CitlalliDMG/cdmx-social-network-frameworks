@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import * as routes from '../../constants/routes';
-import logo from './img/logotipo-lux-login.png';
-import './css/Landing.css'
+import * as routes from '../constants/routes';
+import logo from './global/img/logotipo-lux-login.png';
+import './global/css/Landing.css'
 
 const LandingPage = () =>
     <div className="container">
