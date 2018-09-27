@@ -4,8 +4,8 @@ import {
     withRouter,
 } from 'react-router-dom';
 
-import { auth } from '../../firebase';
-import * as routes from '../../constants/routes';
+import { auth, db } from '../firebase';
+import * as routes from '../constants/routes';
 
 const SignUpPage = ({history}) =>
     <div>
@@ -34,7 +34,6 @@ class SignUpForm extends Component {
 
     onSubmit = (event) => {
         const {
-            // eslint-disable-next-line
             username,
             email,
             passwordOne,
@@ -46,8 +45,16 @@ class SignUpForm extends Component {
 
         auth.doCreateUserWithEmailAndPassword(email, passwordOne)
             .then(authUser => {
-                this.setState({ ...INITIAL_STATE });
-                history.push(routes.HOME);
+
+                // Create a user in Firebase DB too
+                db.doCreateUser(authUser.user.uid, username, email)
+                    .then(() => {
+                        this.setState({ ...INITIAL_STATE });
+                        history.push(routes.HOME);
+                    })
+                    .catch(error => {
+                        this.setState(byPropKey('error', error));
+                    })
             })
             .catch(error => {
                 this.setState(byPropKey('error', error));

@@ -3,17 +3,18 @@ import React from 'react';
 import { Link } from 'react-router-dom'; // Alow to link the application to different routes
 
 // Assets
+import AuthUserContext from './AuthUserContext';
 import SignOutButton from './SingOut';
-import * as routes from '../../constants/routes';
-import './css/Navigation.css'
+import * as routes from '../constants/routes';
+import './global/css/Navigation.css'
 
-const Navigation = ({ authUser }) =>
-    <div>
-        { authUser
+const Navigation = () =>
+    <AuthUserContext.Consumer>
+        {authUser => authUser
             ? <NavigationAuth />
             : <NavigationNonAuth />
         }
-    </div>
+    </AuthUserContext.Consumer>
 
     const NavigationAuth = () =>
         <ul className="Menu">
