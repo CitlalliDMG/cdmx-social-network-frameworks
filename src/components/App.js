@@ -2,29 +2,28 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
+  Switch,
 } from 'react-router-dom';
 // import './App.css';
 
-import Navigation from './Navigation';
-import LandingPage from './Landing';
+// import LandingPage from './Landing';
 import SignUpPage from './SignUp';
 import SignInPage from './SignIn';
 import PasswordForgetPage from './PasswordForget';
 import HomePage from './Home';
 import AccountPage from './Account';
+import Page404 from './Page404';
 
 import * as routes from '../constants/routes';
 import withAuthentication from './withAuthentication';
 
 const App = () =>
-  <Router>
-    <div>
-      <Navigation />
-
-      <Route
+  <Router basename={process.env.PUBLIC_URL}>
+    <Switch>
+      {/* <Route
         exact path={routes.LANDING}
         component={LandingPage}
-      />
+      /> */}
       <Route
         exact path={routes.SIGN_UP}
         component={SignUpPage}
@@ -45,7 +44,10 @@ const App = () =>
         exact path={routes.ACCOUNT}
         component={AccountPage}
       />
-    </div>
+      <Route
+        component={Page404}
+      />
+    </Switch>
   </Router>
 
 export default withAuthentication(App);
