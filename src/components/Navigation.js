@@ -18,7 +18,7 @@ const Navigation = () =>
 
     const NavigationAuth = () =>
         <ul className="Menu">
-            <li><Link to ={routes.LANDING}>Inicio</Link></li>
+            {/* <li><Link to ={routes.SIGN_IN}>Inicio</Link></li> */}
             <li><Link to ={routes.HOME}>Home</Link></li>
             <li><Link to ={routes.ACCOUNT}>Tu cuenta</Link></li>
             <li><SignOutButton /></li>
@@ -26,8 +26,8 @@ const Navigation = () =>
 
     const NavigationNonAuth = () => 
         <ul className="Menu">
-            <li><Link to ={routes.LANDING}>Inicio</Link></li>
-            <li><Link to ={routes.SIGN_IN}>Entrar</Link></li>
+            {/* <li><Link to ={routes.LANDING}>Inicio</Link></li> */}
+            {/* <li><Link to ={routes.SIGN_IN}>Inicio</Link></li> */}
         </ul>
 
 export default Navigation;

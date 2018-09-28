@@ -1,19 +1,33 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
+import Navigation from './Navigation';
 import { SignUpLink } from './SignUp';
 import { PasswordForgetLink } from './PasswordForget';
 import { auth } from '../firebase';
 import * as routes from '../constants/routes';
+import logo from './global/img/logotipo-lux-login.png';
+import iconLux from './global/img/icono-45-lux.png';
+import iconGoogle from './global/img/google-logo-icon-PNG-Transparent-Background.png'
 import './global/css/SignIn.css'
 
 const SignInPage = ({ history }) =>
-    <div className="container-sign-in">
-        <h1>Entra a LUX</h1>
-        <SignInForm history={history} />
-        <PasswordForgetLink />
-        <SignInGoogle history={history}/>
-        <SignUpLink />
+    <div>
+        <Navigation />
+
+        <header className="container">
+            <img src={logo} alt="logo-lux" id="logo-index" />
+            <h1>"No hay logro pequeño, ni paso que no cuente."</h1>
+            <p>Encuentra en LUX un espacio seguro y la motivación para atravesar esos momentos difíciles, al leer y  compartir las pequeñas metas que iluminan tu día a día.</p>
+        </header>
+
+        <main className="container-sign-in">
+            <h3>Entra a LUX</h3>
+            <SignInForm history={history} />
+            <PasswordForgetLink />
+            <SignInGoogle history={history} />
+            <SignUpLink />
+        </main>
     </div>
 
 const byPropKey = (propertyName, value) => ({
@@ -81,6 +95,7 @@ class SignInForm extends Component {
                     placeholder="Contraseña"
                 />
                 <button disabled={isInvalid} type="submit">
+                    <img src={iconLux} alt="icon-lux"/> 
                     Entrar
                 </button>
 
@@ -110,7 +125,10 @@ class SignInGoogle extends Component {
 
     render() {
         return (
-            <button onClick={this.loginGoogle}>Login con Google</button>
+            <button onClick={this.loginGoogle} id="btn-google">
+                <img src={iconGoogle} alt="icon-google"/> 
+                Google
+            </button>
         )
     }
 }

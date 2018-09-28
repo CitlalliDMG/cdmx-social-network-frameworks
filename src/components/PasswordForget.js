@@ -3,9 +3,13 @@ import { Link } from 'react-router-dom';
 
 import { auth } from '../firebase';
 import * as routes from '../constants/routes';
+import Navigation from './Navigation';
+import './global/css/PasswordForget.css'
 
 const PasswordForgetPage = () =>
     <div>
+        <Navigation />
+        
         <h1>PasswordForgetPage</h1>
         <PasswordForgetForm />
     </div>
@@ -67,7 +71,7 @@ class PasswordForgetForm extends Component {
 }
 
 const PasswordForgetLink = () =>
-    <p>
+    <p className="link-box">
         <Link to={routes.PASSWORD_FORGET}>¿Olvidaste tu contraseña?</Link>
     </p>
 

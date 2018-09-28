@@ -6,9 +6,13 @@ import {
 
 import { auth, db } from '../firebase';
 import * as routes from '../constants/routes';
+import Navigation from './Navigation';
+import './global/css/SignUp.css'
 
 const SignUpPage = ({history}) =>
     <div>
+        <Navigation />
+        
         <h1>Únete a LUX</h1>
         <SignUpForm history={history} />
     </div>
@@ -114,9 +118,9 @@ class SignUpForm extends Component {
 }
 
 const SignUpLink = () =>
-    <p>
-        ¿No tienes cuenta?
-       {' '}
+    <p className="link-box">
+        ¿No tienes cuenta? 
+        <br/>
         <Link to={routes.SIGN_UP}>Crea una cuenta</Link>
     </p>
 
